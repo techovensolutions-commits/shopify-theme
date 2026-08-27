@@ -106,7 +106,7 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-editorial__copy p { max-width: 43rem; margin: 2rem 0 3rem; font-size: 1.6rem; line-height: 1.6; }
 .lp-editorial .lp-button { width: fit-content; background: var(--lp-ink); color: #fff; }
 
-.collection-hero, .main-page-title, .contact .title { letter-spacing: -.065em; text-transform: uppercase; }
+.collection-hero__title, .main-page-title, .contact .title { letter-spacing: -.065em; text-transform: uppercase; }
 .lp-breadcrumbs-wrap { border-bottom: 1px solid var(--lp-line); background: var(--lp-paper); }
 .lp-breadcrumbs.page-width { max-width: 144rem; padding-top: 1.8rem; padding-bottom: 1.8rem; }
 .lp-breadcrumbs ol { display: flex; align-items: center; flex-wrap: wrap; gap: .9rem; margin: 0; padding: 0; list-style: none; }
