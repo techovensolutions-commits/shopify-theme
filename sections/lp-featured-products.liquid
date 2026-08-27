@@ -1,0 +1,13 @@
+<section class="lp-featured-products page-width">
+  <div class="lp-section-heading" data-lp-reveal>
+    <div><span class="lp-eyebrow">{{ section.settings.eyebrow }}</span><h2 class="lp-title">{{ section.settings.heading }}</h2>{% if section.settings.description != blank %}<p class="lp-featured-products__intro">{{ section.settings.description }}</p>{% endif %}</div>
+    <a class="lp-section-link" href="{{ section.settings.collection.url | default: routes.all_products_collection_url }}">Tout voir</a>
+  </div>
+  <div class="lp-product-grid">
+    {% if section.settings.collection != blank %}{% for product in section.settings.collection.products limit: section.settings.products_to_show %}{% render 'lp-product-card', product: product %}{% endfor %}
+    {% else %}{% for product in collections.all.products limit: section.settings.products_to_show %}{% render 'lp-product-card', product: product %}{% endfor %}{% endif %}
+  </div>
+</section>
+{% schema %}
+{"name":"LP — Produits","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Sélection LP"},{"type":"text","id":"heading","label":"Heading","default":"Les paires du moment."},{"type":"textarea","id":"description","label":"Description","default":"Les modèles les plus désirés de la sélection LP."},{"type":"collection","id":"collection","label":"Collection"},{"type":"range","id":"products_to_show","min":4,"max":12,"step":1,"label":"Products to show","default":8}],"presets":[{"name":"LP — Produits"}]}
+{% endschema %}

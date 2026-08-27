@@ -1,0 +1,16 @@
+{%- comment -%} LP Market product card: every image uses the same square stage. {%- endcomment -%}
+<article class="lp-product-card" data-lp-reveal>
+  <a class="lp-product-card__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+    {%- if product.featured_media -%}
+      {{ product.featured_media.preview_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 749px) 46vw, (max-width: 989px) 30vw, 23vw', alt: product.featured_media.alt | default: product.title }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+    {%- if product.compare_at_price > product.price -%}<span class="lp-product-card__badge">Offre</span>{%- endif -%}
+  </a>
+  <div class="lp-product-card__body">
+    <p class="lp-product-card__kicker">{{ product.vendor | default: 'LP Market' }}</p>
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="lp-product-card__price">{% render 'price', product: product, show_compare_at_price: true %}</div>
+  </div>
+</article>
