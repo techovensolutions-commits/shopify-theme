@@ -7,6 +7,7 @@
 }
 
 body { background: var(--lp-paper); color: var(--lp-ink); }
+.template-index { --page-width: 144rem; }
 .lp-eyebrow { display: inline-flex; align-items: center; gap: .8rem; color: var(--lp-gold); font-size: 1.05rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .lp-eyebrow::before { width: 2.6rem; height: 1px; background: currentColor; content: ''; }
 .lp-title { margin: 1.3rem 0 0; font-size: clamp(3.6rem, 6vw, 8.8rem); font-weight: 700; letter-spacing: -.075em; line-height: .88; text-transform: uppercase; }
