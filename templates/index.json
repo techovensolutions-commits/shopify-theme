@@ -1,51 +1,33 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+    "lp_hero": {
+      "type": "lp-hero",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "LP Market — Nouvelle sélection",
+        "heading": "La paire qui change le rythme.",
+        "text": "Une sélection pointue de sneakers techniques, iconiques et difficiles à trouver.",
+        "button_label": "Découvrir la sélection",
+        "button_link": "shopify://collections/all"
       }
+    },
+    "lp_categories": {
+      "type": "lp-category-rail",
+      "blocks": {
+        "asics": { "type": "category", "settings": { "title": "ASICS", "description": "Performance culte", "link": "/search?q=Asics&type=product" } },
+        "on": { "type": "category", "settings": { "title": "ON RUNNING", "description": "Confort radical", "link": "/search?q=On+Cloudtilt&type=product" } },
+        "mizuno": { "type": "category", "settings": { "title": "MIZUNO", "description": "Technicité japonaise", "link": "/search?q=Mizuno&type=product" } },
+        "salomon": { "type": "category", "settings": { "title": "SALOMON", "description": "Outdoor urbain", "link": "/search?q=Salomon&type=product" } }
+      },
+      "block_order": ["asics", "on", "mizuno", "salomon"],
+      "settings": { "eyebrow": "Sélection par univers", "heading": "Trouve ton mouvement.", "all_link": "shopify://collections/all" }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Les paires du moment",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "description": "Les modèles les plus désirés de la sélection LP.",
+        "show_description": true,
         "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
@@ -54,22 +36,49 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 64,
+        "padding_bottom": 64
       }
+    },
+    "lp_trust": {
+      "type": "lp-trust",
+      "blocks": {
+        "selection": { "type": "item", "settings": { "title": "Sélection contrôlée", "text": "Des modèles choisis pour leur silhouette, leur confort et leur présence." } },
+        "payment": { "type": "item", "settings": { "title": "Paiement sécurisé", "text": "Un parcours d'achat clair et protégé à chaque étape." } },
+        "support": { "type": "item", "settings": { "title": "Service à l'écoute", "text": "Besoin d'un conseil taille ou modèle ? Notre équipe vous répond." } }
+      },
+      "block_order": ["selection", "payment", "support"],
+      "settings": { "eyebrow": "L'expérience LP", "heading": "Simple. Sûr. Désirable." }
+    },
+    "editorial": {
+      "type": "image-with-text",
+      "settings": { "image_height": "large", "desktop_image_width": "medium", "layout": "image_first", "desktop_content_position": "center", "desktop_content_alignment": "left", "content_layout": "no-overlap", "color_scheme": "scheme-2", "mobile_content_alignment": "left", "padding_top": 0, "padding_bottom": 0 },
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Une culture.\\nPas juste une paire.", "heading_size": "h1" } },
+        "text": { "type": "text", "settings": { "text": "LP Market rassemble les silhouettes qui font avancer la rue. Explorez les nouveautés et choisissez la paire qui vous ressemble.", "text_style": "body" } },
+        "button": { "type": "button", "settings": { "button_label": "À propos de LP Market", "button_link": "/pages/a-propos", "button_style_secondary": false } }
+      },
+      "block_order": ["heading", "text", "button"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Gardez une longueur d'avance.", "heading_size": "h1" } },
+        "paragraph": { "type": "paragraph", "settings": { "text": "Nouveautés, restocks et sélections exclusives — directement dans votre boîte mail." } },
+        "email": { "type": "email_form", "settings": {} }
+      },
+      "block_order": ["heading", "paragraph", "email"],
+      "settings": { "color_scheme": "scheme-1", "full_width": true, "padding_top": 76, "padding_bottom": 76 }
     }
   },
-  "order": [
-    "image_banner",
-    "featured_collection"
-  ]
+  "order": ["lp_hero", "lp_categories", "featured_collection", "lp_trust", "editorial", "newsletter"]
 }

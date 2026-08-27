@@ -58,6 +58,8 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'standard-actions-override.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'lp-market.js' | asset_url }}" defer="defer"></script>
+    {{ 'lp-market.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>

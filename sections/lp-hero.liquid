@@ -1,0 +1,19 @@
+<section class="lp-hero">
+  <div class="lp-hero__media" aria-hidden="true">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw' }}
+    {% else %}
+      <img src="{{ 'lp-market-hero.png' | asset_url }}" width="1728" height="972" alt="">
+    {% endif %}
+  </div>
+  <div class="lp-hero__overlay"></div>
+  <div class="lp-hero__content page-width"><div class="lp-hero__copy" data-lp-reveal>
+    <span class="lp-eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1 class="lp-title">{{ section.settings.heading }}</h1>
+    <p class="lp-hero__text">{{ section.settings.text }}</p>
+    <a class="lp-button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+  </div></div>
+</section>
+{% schema %}
+{"name":"LP — Hero éditorial","settings":[{"type":"image_picker","id":"image","label":"Image de couverture"},{"type":"text","id":"eyebrow","label":"Surtitre","default":"LP Market — Nouvelle sélection"},{"type":"textarea","id":"heading","label":"Titre","default":"La paire qui change le rythme."},{"type":"textarea","id":"text","label":"Texte","default":"Une sélection pointue de sneakers techniques, iconiques et difficiles à trouver."},{"type":"text","id":"button_label","label":"Libellé du bouton","default":"Découvrir la sélection"},{"type":"url","id":"button_link","label":"Lien du bouton"}],"presets":[{"name":"LP — Hero éditorial"}]}
+{% endschema %}

@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": { "type": "main-page", "settings": { "padding_top": 72, "padding_bottom": 72 } },
+    "story": { "type": "image-with-text", "settings": { "image_height": "large", "desktop_image_width": "medium", "layout": "text_first", "desktop_content_position": "center", "desktop_content_alignment": "left", "content_layout": "no-overlap", "color_scheme": "scheme-2", "mobile_content_alignment": "left", "padding_top": 0, "padding_bottom": 0 }, "blocks": { "heading": { "type": "heading", "settings": { "heading": "La paire avant le bruit.", "heading_size": "h1" } }, "text": { "type": "text", "settings": { "text": "LP Market est né d'une conviction : les sneakers les plus fortes sont celles que vous avez vraiment envie de porter. Nous cherchons les silhouettes qui traversent les tendances avec style et confort.", "text_style": "body" } } }, "block_order": ["heading", "text"] },
+    "trust": { "type": "lp-trust", "blocks": { "one": { "type": "item", "settings": { "title": "Sélection", "text": "Une curation nette, sans compromis." } }, "two": { "type": "item", "settings": { "title": "Énergie", "text": "Des modèles qui donnent le ton." } }, "three": { "type": "item", "settings": { "title": "Service", "text": "Une expérience d'achat humaine et fluide." } } }, "block_order": ["one", "two", "three"], "settings": { "eyebrow": "Notre approche", "heading": "Porter mieux. Bouger librement." } }
+  },
+  "order": ["main", "story", "trust"]
+}

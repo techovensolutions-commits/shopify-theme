@@ -4,12 +4,15 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "brand": { "type": "text", "settings": { "heading": "LP Market", "subtext": "Sneakers techniques, lignes iconiques et nouveautés sélectionnées avec exigence." } },
+        "service": { "type": "text", "settings": { "heading": "Besoin d'aide ?", "subtext": "Écrivez-nous pour un conseil taille, un suivi de commande ou toute question." } }
+      },
+      "block_order": ["brand", "service"],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "Les nouveautés, sans le bruit.",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
