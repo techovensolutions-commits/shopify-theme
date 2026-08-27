@@ -1,0 +1,113 @@
+<section
+  class="lp-reviews"
+  style="--lp-review-accent: {{ section.settings.accent_color }};"
+  aria-labelledby="LPReviewsTitle-{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="lp-reviews__heading" data-lp-reveal>
+      {% if section.settings.eyebrow != blank %}
+        <span class="lp-reviews__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      <h2 id="LPReviewsTitle-{{ section.id }}">
+        {{ section.settings.heading }}
+        {% if section.settings.highlight != blank %}<span>{{ section.settings.highlight }}</span>{% endif %}
+      </h2>
+    </div>
+
+    <div class="lp-reviews__track" role="list" aria-label="{{ section.settings.eyebrow | escape }}">
+      {% for block in section.blocks %}
+        {% liquid
+          assign review_product = block.settings.product
+          assign fallback_index = forloop.index0
+          if review_product == blank
+            assign review_product = collections.all.products[fallback_index]
+          endif
+
+          assign review_image = block.settings.image
+          if review_image == blank and review_product != blank
+            assign review_image = review_product.featured_media.preview_image
+          endif
+          assign image_alt = block.settings.name | append: ' — avis client LP Market'
+        %}
+        <article class="lp-review-card" role="listitem" data-lp-reveal {{ block.shopify_attributes }}>
+          <div class="lp-review-card__top">
+            <h3>{{ block.settings.name }}</h3>
+            <div class="lp-review-card__stars" aria-label="{{ block.settings.rating }} étoiles sur 5">
+              {% for star in (1..5) %}
+                <span{% if star > block.settings.rating %} class="is-empty"{% endif %} aria-hidden="true">★</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <p class="lp-review-card__text">{{ block.settings.text }}</p>
+
+          <div class="lp-review-card__media">
+            {% if review_image != blank %}
+              {{ review_image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '360, 540, 720, 1000', sizes: '(max-width: 749px) 82vw, 31vw', alt: image_alt }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+
+          <div class="lp-review-card__meta">
+            {% if block.settings.verified %}
+              <span class="lp-review-card__verified">
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                  <path d="m6.2 10.3 2.4 2.4 5.2-5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Achat vérifié
+              </span>
+            {% endif %}
+            {% if block.settings.date != blank %}<span class="lp-review-card__date">{{ block.settings.date }}</span>{% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_drag_hint and section.blocks.size > 1 %}
+      <p class="lp-reviews__hint" aria-hidden="true">Faites glisser <span>→</span></p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LP — Avis clients",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Avis clients" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Ils ont validé" },
+    { "type": "text", "id": "highlight", "label": "Texte mis en avant", "default": "LP MARKET" },
+    { "type": "color", "id": "accent_color", "label": "Couleur d'accent", "default": "#d6ad5e" },
+    { "type": "checkbox", "id": "show_drag_hint", "label": "Afficher l'indication de défilement", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis",
+      "limit": 8,
+      "settings": [
+        { "type": "text", "id": "name", "label": "Prénom ou nom", "default": "Jordan" },
+        { "type": "range", "id": "rating", "label": "Note", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "text", "label": "Avis", "default": "Livraison rapide, paire incroyable et super confortable." },
+        { "type": "image_picker", "id": "image", "label": "Photo du client" },
+        { "type": "product", "id": "product", "label": "Produit utilisé comme image de secours" },
+        { "type": "checkbox", "id": "verified", "label": "Achat vérifié", "default": true },
+        { "type": "text", "id": "date", "label": "Date", "default": "Il y a 12 jours" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP — Avis clients",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

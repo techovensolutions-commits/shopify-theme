@@ -74,6 +74,29 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-product-card__price { align-self: end; margin-top: 1rem; }
 .lp-product-card__price .price { font-size: 1.35rem; }
 
+.lp-reviews { padding: clamp(5.6rem, 8vw, 10rem) 0; overflow: hidden; background: #f4f7f5; }
+.lp-reviews__heading { margin-bottom: 3.6rem; }
+.lp-reviews__eyebrow { color: var(--lp-muted); font-size: 1.05rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.lp-reviews__heading h2 { margin: 1rem 0 0; color: var(--lp-ink); font-size: clamp(3.5rem, 5vw, 6.6rem); font-weight: 700; letter-spacing: -.07em; line-height: .95; }
+.lp-reviews__heading h2 span { color: var(--lp-review-accent); }
+.lp-reviews__track { display: grid; grid-auto-columns: clamp(32rem, 31vw, 46rem); grid-auto-flow: column; gap: 1.6rem; padding-bottom: 1rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; scrollbar-width: none; }
+.lp-reviews__track::-webkit-scrollbar { display: none; }
+.lp-review-card { display: grid; grid-template-rows: auto auto 1fr auto; min-height: 48rem; padding: 2.2rem; border: 1px solid rgba(214, 173, 94, .28); border-radius: 2.4rem; background: #fff; box-shadow: 0 1.8rem 4rem rgba(10, 10, 10, .05); scroll-snap-align: start; }
+.lp-review-card__top { display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; }
+.lp-review-card__top h3 { margin: 0; color: var(--lp-ink); font-size: 1.8rem; font-weight: 700; letter-spacing: -.03em; }
+.lp-review-card__stars { display: flex; flex-shrink: 0; gap: .18rem; color: var(--lp-review-accent); font-size: 1.75rem; line-height: 1; }
+.lp-review-card__stars .is-empty { color: #dedede; }
+.lp-review-card__text { min-height: 4.4rem; margin: 1.7rem 0; color: #373733; font-size: 1.5rem; line-height: 1.5; }
+.lp-review-card__media { aspect-ratio: 16 / 8.8; min-height: 0; overflow: hidden; border-radius: 1.8rem; background: #ebe9e4; }
+.lp-review-card__media img, .lp-review-card__media .placeholder-svg { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms cubic-bezier(.2,.8,.2,1); }
+.lp-review-card:hover .lp-review-card__media img { transform: scale(1.035); }
+.lp-review-card__meta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-top: 1.7rem; }
+.lp-review-card__verified { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1rem; border-radius: 99rem; background: #f1eee5; color: var(--lp-ink); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
+.lp-review-card__verified svg { width: 1.5rem; height: 1.5rem; color: var(--lp-review-accent); }
+.lp-review-card__date { color: var(--lp-muted); font-size: 1.05rem; font-weight: 600; white-space: nowrap; }
+.lp-reviews__hint { margin: 2.2rem 0 0; color: var(--lp-muted); font-size: 1.2rem; text-align: center; }
+.lp-reviews__hint span { color: var(--lp-review-accent); font-size: 1.6rem; }
+
 .lp-editorial-section { padding-top: clamp(5.6rem, 8vw, 10rem); padding-bottom: clamp(5.6rem, 8vw, 10rem); }
 .lp-editorial.page-width { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 54rem; padding-right: 0; padding-left: 0; overflow: hidden; background: #e5d5b5; }
 .lp-editorial__image { min-height: 45rem; overflow: hidden; background: #e8e4dc; }
@@ -152,6 +175,16 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
   .lp-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
   .lp-product-card__body { min-height: 11rem; padding-top: 1rem; }
   .lp-product-card h3 { min-height: 4rem; font-size: 1.35rem; }
+  .lp-reviews__heading { margin-bottom: 2.8rem; }
+  .lp-reviews__heading h2 { font-size: clamp(3.4rem, 11vw, 5rem); }
+  .lp-reviews__track { grid-auto-columns: minmax(84vw, 1fr); gap: 1.2rem; padding-right: 1.5rem; }
+  .lp-review-card { min-height: 43rem; padding: 1.6rem; border-radius: 2rem; }
+  .lp-review-card__top { align-items: flex-start; }
+  .lp-review-card__top h3 { font-size: 1.6rem; }
+  .lp-review-card__stars { font-size: 1.45rem; }
+  .lp-review-card__text { min-height: 4.2rem; margin: 1.35rem 0; font-size: 1.35rem; }
+  .lp-review-card__media { border-radius: 1.4rem; }
+  .lp-review-card__meta { padding-top: 1.4rem; }
   .lp-editorial-section { padding-top: 5.6rem; padding-bottom: 5.6rem; }
   .lp-editorial { grid-template-columns: 1fr; }
   .lp-editorial__image { min-height: 36rem; }

@@ -31,6 +31,17 @@
         "products_to_show": 8
       }
     },
+    "lp_reviews": {
+      "type": "lp-reviews",
+      "blocks": {
+        "jordan": { "type": "review", "settings": { "name": "Jordan", "rating": 5, "text": "Livraison rapide, paire incroyable et super confortable.", "verified": true, "date": "Il y a 12 jours" } },
+        "doublev": { "type": "review", "settings": { "name": "DoubleV", "rating": 5, "text": "Service au top, équipe réactive et commande parfaitement emballée.", "verified": true, "date": "Il y a 6 mois" } },
+        "sarah": { "type": "review", "settings": { "name": "Sarah", "rating": 5, "text": "Rien à dire, livrée en une semaine. La paire est encore mieux en vrai.", "verified": true, "date": "Il y a 2 jours" } },
+        "kilian": { "type": "review", "settings": { "name": "Kilian", "rating": 5, "text": "Déjà ma deuxième commande chez LP Market, toujours impeccable.", "verified": true, "date": "Il y a 3 semaines" } }
+      },
+      "block_order": ["jordan", "doublev", "sarah", "kilian"],
+      "settings": { "eyebrow": "Avis clients", "heading": "Ils ont validé", "highlight": "LP MARKET", "accent_color": "#d6ad5e", "show_drag_hint": true }
+    },
     "lp_trust": {
       "type": "lp-trust",
       "blocks": {
@@ -62,5 +73,5 @@
       "settings": { "color_scheme": "scheme-1", "full_width": true, "padding_top": 76, "padding_bottom": 76 }
     }
   },
-  "order": ["lp_hero", "lp_categories", "featured_collection", "lp_trust", "editorial", "newsletter"]
+  "order": ["lp_hero", "lp_categories", "featured_collection", "lp_reviews", "lp_trust", "editorial", "newsletter"]
 }
