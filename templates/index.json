@@ -55,7 +55,7 @@
       "type": "newsletter",
       "blocks": {
         "heading": { "type": "heading", "settings": { "heading": "Gardez une longueur d'avance.", "heading_size": "h1" } },
-        "paragraph": { "type": "paragraph", "settings": { "text": "Nouveautés, restocks et sélections exclusives — directement dans votre boîte mail." } },
+        "paragraph": { "type": "paragraph", "settings": { "text": "<p>Nouveautés, restocks et sélections exclusives — directement dans votre boîte mail.</p>" } },
         "email": { "type": "email_form", "settings": {} }
       },
       "block_order": ["heading", "paragraph", "email"],
