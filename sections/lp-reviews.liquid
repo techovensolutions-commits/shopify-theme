@@ -64,9 +64,6 @@
       {% endfor %}
     </div>
 
-    {% if section.settings.show_drag_hint and section.blocks.size > 1 %}
-      <p class="lp-reviews__hint" aria-hidden="true">Faites glisser <span>→</span></p>
-    {% endif %}
   </div>
 </section>
 
@@ -79,8 +76,7 @@
     { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Avis clients" },
     { "type": "text", "id": "heading", "label": "Titre", "default": "Ils ont validé" },
     { "type": "text", "id": "highlight", "label": "Texte mis en avant", "default": "LP MARKET" },
-    { "type": "color", "id": "accent_color", "label": "Couleur d'accent", "default": "#d6ad5e" },
-    { "type": "checkbox", "id": "show_drag_hint", "label": "Afficher l'indication de défilement", "default": true }
+    { "type": "color", "id": "accent_color", "label": "Couleur d'accent", "default": "#d6ad5e" }
   ],
   "blocks": [
     {

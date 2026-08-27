@@ -95,8 +95,6 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-review-card__verified { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1rem; border-radius: 99rem; background: #f1eee5; color: var(--lp-ink); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
 .lp-review-card__verified svg { width: 1.5rem; height: 1.5rem; color: var(--lp-review-accent); }
 .lp-review-card__date { color: var(--lp-muted); font-size: 1.05rem; font-weight: 600; white-space: nowrap; }
-.lp-reviews__hint { margin: 2.2rem 0 0; color: var(--lp-muted); font-size: 1.2rem; text-align: center; }
-.lp-reviews__hint span { color: var(--lp-review-accent); font-size: 1.6rem; }
 
 .lp-editorial-section { padding-top: clamp(5.6rem, 8vw, 10rem); padding-bottom: clamp(5.6rem, 8vw, 10rem); }
 .lp-editorial.page-width { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 54rem; padding-right: 0; padding-left: 0; overflow: hidden; background: #e5d5b5; }

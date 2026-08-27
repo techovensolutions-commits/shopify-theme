@@ -40,7 +40,7 @@
         "kilian": { "type": "review", "settings": { "name": "Kilian", "rating": 5, "text": "Déjà ma deuxième commande chez LP Market, toujours impeccable.", "verified": true, "date": "Il y a 3 semaines" } }
       },
       "block_order": ["jordan", "doublev", "sarah", "kilian"],
-      "settings": { "eyebrow": "Avis clients", "heading": "Ils ont validé", "highlight": "LP MARKET", "accent_color": "#d6ad5e", "show_drag_hint": true }
+      "settings": { "eyebrow": "Avis clients", "heading": "Ils ont validé", "highlight": "LP MARKET", "accent_color": "#d6ad5e" }
     },
     "lp_trust": {
       "type": "lp-trust",
