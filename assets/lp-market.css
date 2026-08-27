@@ -130,10 +130,11 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-breadcrumbs a:hover { color: var(--lp-ink); }
 .lp-breadcrumbs svg { width: 1.5rem; height: 1.5rem; }
 .lp-breadcrumbs [aria-current='page'] { color: var(--lp-ink); }
-.collection-hero { padding: clamp(4rem, 6vw, 8rem) 0 3.5rem; background: var(--lp-paper); }
+.template-collection .collection-hero, .template-collection .collection-hero.collection-hero--with-image { padding: clamp(5rem, 6vw, 8rem) 0 clamp(5rem, 5vw, 7rem); background: var(--lp-paper); }
 .lp-collection-hero__eyebrow { display: block; margin-bottom: 1.4rem; color: var(--lp-gold); font-size: 1.05rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .collection-hero__title, .main-page-title, .contact .title { font-size: clamp(4rem, 7vw, 9rem); line-height: .9; }
-.collection-hero__description { max-width: 58rem; margin-top: 2rem; color: var(--lp-muted); font-size: 1.5rem; line-height: 1.65; }
+.template-collection .collection-hero__title { margin: 1.4rem 0 0; }
+.template-collection .collection-hero__title + .collection-hero__description { max-width: 58rem; margin-top: 2.8rem; margin-bottom: 0; color: var(--lp-muted); font-size: 1.5rem; line-height: 1.65; }
 .lp-list-collections { padding-top: clamp(4rem, 6vw, 8rem); padding-bottom: clamp(5.6rem, 8vw, 10rem); }
 .lp-list-collections__header { margin-bottom: clamp(3.5rem, 5vw, 6rem); }
 .lp-list-collections__header .title { margin: 0; font-size: clamp(4rem, 7vw, 9rem); letter-spacing: -.065em; line-height: .9; text-transform: uppercase; }
@@ -290,7 +291,9 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
   .template-product .product__info-container { padding: 2.4rem 1.8rem; }
   .lp-breadcrumbs.page-width { padding-top: 1.4rem; padding-bottom: 1.4rem; }
   .lp-breadcrumbs li { font-size: .95rem; }
-  .collection-hero { padding-top: 4rem; }
+  .template-collection .collection-hero, .template-collection .collection-hero.collection-hero--with-image { padding-top: 4rem; padding-bottom: 4.5rem; }
+  .template-collection .collection-hero__title { margin-top: 1rem; }
+  .template-collection .collection-hero__title + .collection-hero__description { margin-top: 2rem; }
   .lp-list-collections { padding-top: 4rem; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
