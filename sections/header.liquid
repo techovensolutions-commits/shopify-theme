@@ -138,6 +138,7 @@
   assign header_tag = 'div'
   assign lp_header_logo = section.settings.lp_logo | default: settings.logo
   assign lp_header_logo_width = section.settings.lp_logo_width
+  assign lp_header_logo_height = section.settings.lp_logo_height
 
   if section.settings.sticky_header_type != 'none'
     assign header_tag = 'sticky-header'
@@ -188,7 +189,7 @@
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if lp_header_logo != blank -%}
-          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px;">
+          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px; --lp-logo-height: {{ lp_header_logo_height }}px;">
             {%- assign logo_alt = lp_header_logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = lp_header_logo_width | divided_by: lp_header_logo.aspect_ratio -%}
             {% capture sizes %}(max-width: {{ lp_header_logo_width | times: 2 }}px) 50vw, {{ lp_header_logo_width }}px{% endcapture %}
@@ -197,7 +198,7 @@
               lp_header_logo
               | image_url: width: 600
               | image_tag:
-                class: 'header__heading-logo motion-reduce',
+                class: 'header__heading-logo lp-header-logo--custom motion-reduce',
                 widths: widths,
                 height: logo_height,
                 width: lp_header_logo_width,
@@ -207,7 +208,16 @@
             }}
           </div>
         {%- else -%}
-          <img class="header__heading-logo" src="{{ 'lp-market-logo.jpeg' | asset_url }}" width="800" height="800" alt="{{ shop.name | escape }}">
+          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px; --lp-logo-height: {{ lp_header_logo_height }}px;">
+            <img
+              class="header__heading-logo lp-header-logo--fallback motion-reduce"
+              src="{{ 'lp-market-logo.jpeg' | asset_url }}"
+              width="{{ lp_header_logo_width }}"
+              height="{{ lp_header_logo_height }}"
+              alt="{{ shop.name | escape }}"
+              loading="eager"
+            >
+          </div>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -231,7 +241,7 @@
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if lp_header_logo != blank -%}
-          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px;">
+          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px; --lp-logo-height: {{ lp_header_logo_height }}px;">
             {%- assign logo_alt = lp_header_logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = lp_header_logo_width | divided_by: lp_header_logo.aspect_ratio -%}
             {% capture sizes %}(min-width: 750px) {{ lp_header_logo_width }}px, 50vw{% endcapture %}
@@ -240,7 +250,7 @@
               lp_header_logo
               | image_url: width: 600
               | image_tag:
-                class: 'header__heading-logo',
+                class: 'header__heading-logo lp-header-logo--custom',
                 widths: widths,
                 height: logo_height,
                 width: lp_header_logo_width,
@@ -250,7 +260,16 @@
             }}
           </div>
         {%- else -%}
-          <img class="header__heading-logo" src="{{ 'lp-market-logo.jpeg' | asset_url }}" width="800" height="800" alt="{{ shop.name | escape }}">
+          <div class="header__heading-logo-wrapper" style="--lp-logo-width: {{ lp_header_logo_width }}px; --lp-logo-height: {{ lp_header_logo_height }}px;">
+            <img
+              class="header__heading-logo lp-header-logo--fallback motion-reduce"
+              src="{{ 'lp-market-logo.jpeg' | asset_url }}"
+              width="{{ lp_header_logo_width }}"
+              height="{{ lp_header_logo_height }}"
+              alt="{{ shop.name | escape }}"
+              loading="eager"
+            >
+          </div>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -520,6 +539,16 @@
       "unit": "px",
       "label": "LP Market logo width",
       "default": 180
+    },
+    {
+      "type": "range",
+      "id": "lp_logo_height",
+      "min": 28,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "label": "LP Market logo height",
+      "default": 44
     },
     {
       "type": "select",
