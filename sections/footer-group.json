@@ -5,7 +5,7 @@
     "lp_social_benefits": {
       "type": "lp-social-benefits",
       "blocks": {
-        "shipping": { "type": "service", "settings": { "icon": "shipping", "title": "Livraison", "text": "Livraison offerte en France dès 100 €\nExpédition suivie et soignée" } },
+        "shipping": { "type": "service", "settings": { "icon": "shipping", "title": "Livraison", "text": "Livraison offerte dès 100 €\nExpédition suivie et soignée" } },
         "payment": { "type": "service", "settings": { "icon": "payment", "title": "Paiement sécurisé", "text": "Vos paiements sont entièrement sécurisés grâce à nos solutions de protection." } },
         "support": { "type": "service", "settings": { "icon": "support", "title": "Service client", "text": "Besoin d'un conseil ? Notre équipe vous accompagne avant et après votre commande." } },
         "benefits": { "type": "service", "settings": { "icon": "tag", "title": "Avantages LP", "text": "Accédez aux nouveautés, restocks et sélections exclusives LP Market." } }
