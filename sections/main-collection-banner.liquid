@@ -9,16 +9,30 @@
   }
 {%- endstyle -%}
 
+{% liquid
+  assign lp_collection_title = collection.title
+  if collection.handle == 'all'
+    assign lp_collection_title = 'Toutes les sneakers'
+  endif
+%}
+
+{% render 'lp-breadcrumbs', current_title: lp_collection_title, show_collections_parent: true %}
+
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
+      {% if section.settings.eyebrow != blank %}<span class="lp-collection-hero__eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
+        {{- lp_collection_title | escape -}}
       </h1>
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {% if collection.description != blank %}
+          <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {% elsif collection.handle == 'all' %}
+          <div class="collection-hero__description rte"><p>Explorez toutes les sneakers sélectionnées par LP Market.</p></div>
+        {% endif %}
       {%- endif -%}
     </div>
 
@@ -50,6 +64,12 @@
   "name": "t:sections.main-collection-banner.name",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Catalogue LP"
+    },
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"

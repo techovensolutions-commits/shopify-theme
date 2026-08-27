@@ -3,7 +3,9 @@
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
+        "eyebrow": "Catalogue LP",
+        "title": "Toutes les collections",
+        "intro": "Découvrez nos sélections par marque, silhouette et univers.",
         "sort": "alphabetical",
         "image_ratio": "square",
         "columns_desktop": 3,

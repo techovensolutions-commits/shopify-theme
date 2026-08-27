@@ -1,0 +1,19 @@
+{% liquid
+  assign breadcrumb_title = current_title | default: page_title
+%}
+<div class="lp-breadcrumbs-wrap">
+  <nav class="lp-breadcrumbs page-width" aria-label="Fil d’Ariane">
+    <ol role="list">
+      <li>
+        <a href="{{ routes.root_url }}">
+          <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m3 9 7-6 7 6v8h-5v-5H8v5H3V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span>Accueil</span>
+        </a>
+      </li>
+      {% if show_collections_parent %}
+        <li><a href="{{ routes.collections_url }}">Collections</a></li>
+      {% endif %}
+      <li aria-current="page"><span>{{ breadcrumb_title | escape }}</span></li>
+    </ol>
+  </nav>
+</div>

@@ -1,10 +1,14 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
-  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ section.settings.title }}
-  </h1>
+{% render 'lp-breadcrumbs', current_title: section.settings.title, show_collections_parent: false %}
+
+<div class="lp-list-collections page-width">
+  <header class="lp-list-collections__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {% if section.settings.eyebrow != blank %}<span class="lp-collection-hero__eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+    <h1 class="title title--primary inline-richtext">{{ section.settings.title }}</h1>
+    {% if section.settings.intro != blank %}<p>{{ section.settings.intro }}</p>{% endif %}
+  </header>
   {%- liquid
     case section.settings.sort
       when 'products_high', 'products_low'
@@ -53,10 +57,22 @@
   "class": "section",
   "settings": [
     {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Catalogue LP"
+    },
+    {
       "type": "inline_richtext",
       "id": "title",
       "label": "t:sections.main-list-collections.settings.title.label",
       "default": "t:sections.main-list-collections.settings.title.default"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Découvrez nos sélections par marque, silhouette et univers."
     },
     {
       "type": "select",
