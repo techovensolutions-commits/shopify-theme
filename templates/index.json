@@ -61,17 +61,7 @@
         "button_label": "À propos de LP Market",
         "button_link": "/pages/a-propos"
       }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Gardez une longueur d'avance.", "heading_size": "h1" } },
-        "paragraph": { "type": "paragraph", "settings": { "text": "<p>Nouveautés, restocks et sélections exclusives — directement dans votre boîte mail.</p>" } },
-        "email": { "type": "email_form", "settings": {} }
-      },
-      "block_order": ["heading", "paragraph", "email"],
-      "settings": { "color_scheme": "scheme-1", "full_width": true, "padding_top": 76, "padding_bottom": 76 }
     }
   },
-  "order": ["lp_hero", "lp_categories", "featured_collection", "lp_reviews", "lp_trust", "editorial", "newsletter"]
+  "order": ["lp_hero", "lp_categories", "featured_collection", "lp_reviews", "lp_trust", "editorial"]
 }
