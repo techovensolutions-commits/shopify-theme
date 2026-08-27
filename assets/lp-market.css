@@ -230,6 +230,11 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 [data-lp-reveal].is-visible { opacity: 1; transform: none; }
 @keyframes lp-hero-breathe { to { transform: scale(1.035); } }
 
+@media screen and (max-width: 989px) {
+  .lp-editorial.page-width { grid-template-columns: 1fr; }
+  .lp-editorial__image { min-height: clamp(36rem, 62vw, 52rem); }
+}
+
 @media screen and (max-width: 749px) {
   .header { min-height: 6.4rem; padding: 1rem 1.5rem; }
   .header__heading-logo-wrapper { width: min(var(--lp-logo-width, 130px), 42vw); height: min(var(--lp-logo-height, 34px), 11vw); }
@@ -257,8 +262,11 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
   .lp-review-card__media { border-radius: 1.4rem; }
   .lp-review-card__meta { padding-top: 1.4rem; }
   .lp-editorial-section { padding-top: 5.6rem; padding-bottom: 5.6rem; }
-  .lp-editorial { grid-template-columns: 1fr; }
   .lp-editorial__image { min-height: 36rem; }
+  .lp-editorial__copy { padding: 4.5rem 2.2rem 5rem; }
+  .lp-editorial__copy .lp-title { max-width: 100%; font-size: clamp(3.8rem, 12vw, 5.6rem); overflow-wrap: normal; word-break: normal; }
+  .lp-editorial__copy p { max-width: 100%; font-size: 1.45rem; }
+  .lp-editorial .lp-button { width: 100%; }
   .lp-about-hero__inner.page-width { grid-template-columns: 1fr; padding-top: 0; }
   .lp-about-hero__copy { padding: 5.6rem 0; }
   .lp-about-hero__copy h1 { font-size: clamp(4.6rem, 15vw, 6.8rem); }
