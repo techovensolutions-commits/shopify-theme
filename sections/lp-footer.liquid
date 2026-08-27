@@ -1,0 +1,33 @@
+<footer class="lp-footer">
+  <div class="page-width">
+    <div class="lp-footer__grid">
+      <div class="lp-footer__brand">
+        <a class="lp-footer__wordmark" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">LP<span>.</span>market</a>
+        <p>{{ section.settings.description }}</p>
+      </div>
+      <nav class="lp-footer__column" aria-label="Navigation du pied de page">
+        <h2>{{ section.settings.menu_heading }}</h2><ul>
+          {% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+          {% else %}<li><a href="{{ routes.root_url }}">Accueil</a></li><li><a href="{{ routes.all_products_collection_url }}">Catalogue</a></li><li><a href="/pages/a-propos">À propos</a></li><li><a href="/pages/contact">Contact</a></li>{% endif %}
+        </ul>
+      </nav>
+      <nav class="lp-footer__column" aria-label="Aide et informations">
+        <h2>{{ section.settings.help_heading }}</h2><ul>
+          {% if section.settings.help_menu != blank %}{% for link in section.settings.help_menu.links %}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}
+          {% else %}{% for policy in shop.policies %}{% if policy != blank %}<li><a href="{{ policy.url }}">{{ policy.title }}</a></li>{% endif %}{% endfor %}<li><a href="/pages/contact">Nous contacter</a></li>{% endif %}
+        </ul>
+      </nav>
+      {% if section.settings.show_newsletter %}
+        <div class="lp-footer__newsletter"><h2>{{ section.settings.newsletter_heading }}</h2><p>{{ section.settings.newsletter_text }}</p>
+          {% form 'customer', id: 'LPFooterNewsletter', class: 'lp-footer__form' %}
+            <input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="LPFooterEmail">Adresse e-mail</label><input id="LPFooterEmail" type="email" name="contact[email]" value="{{ form.email }}" autocomplete="email" placeholder="Votre adresse e-mail" required><button type="submit">S'inscrire</button>{% if form.posted_successfully? %}<p class="lp-footer__success">Merci pour votre inscription.</p>{% endif %}
+          {% endform %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="lp-footer__bottom"><p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>{% if shop.enabled_payment_types.size > 0 %}<ul class="lp-footer__payments" role="list">{% for type in shop.enabled_payment_types %}<li>{{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}</li>{% endfor %}</ul>{% endif %}</div>
+  </div>
+</footer>
+{% schema %}
+{"name":"LP — Footer","enabled_on":{"groups":["footer"]},"settings":[{"type":"textarea","id":"description","label":"Brand description","default":"Sneakers techniques, lignes iconiques et nouveautés sélectionnées avec exigence."},{"type":"text","id":"menu_heading","label":"Menu heading","default":"Explorer"},{"type":"link_list","id":"menu","label":"Menu"},{"type":"text","id":"help_heading","label":"Help heading","default":"Aide"},{"type":"link_list","id":"help_menu","label":"Help menu"},{"type":"checkbox","id":"show_newsletter","label":"Show newsletter","default":true},{"type":"text","id":"newsletter_heading","label":"Newsletter heading","default":"Restez dans le mouvement"},{"type":"textarea","id":"newsletter_text","label":"Newsletter text","default":"Nouveautés, restocks et sélections exclusives."}],"presets":[{"name":"LP — Footer"}]}
+{% endschema %}

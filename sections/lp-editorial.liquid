@@ -1,7 +1,17 @@
-<section class="lp-editorial">
-  <div class="lp-editorial__image">{% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '(max-width: 749px) 100vw, 55vw', alt: section.settings.image.alt }}{% else %}<img src="{{ 'lp-market-hero.png' | asset_url }}" width="1728" height="972" loading="lazy" alt="">{% endif %}</div>
-  <div class="lp-editorial__copy" data-lp-reveal><span class="lp-eyebrow">{{ section.settings.eyebrow }}</span><h2 class="lp-title">{{ section.settings.heading }}</h2><p>{{ section.settings.text }}</p>{% if section.settings.button_label != blank %}<a class="lp-button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>{% endif %}</div>
-</section>
+{% liquid
+  assign editorial_product = collections.all.products[3]
+  assign editorial_fallback = editorial_product.featured_media.preview_image
+%}
+<div class="lp-editorial-section">
+  <section class="lp-editorial page-width">
+    <div class="lp-editorial__image">
+      {% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1600', sizes: '(max-width: 749px) 100vw, 55vw', alt: section.settings.image.alt }}
+      {% elsif editorial_fallback != blank %}{{ editorial_fallback | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '500, 800, 1100, 1400', sizes: '(max-width: 749px) 100vw, 55vw', alt: editorial_product.title }}
+      {% else %}{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}{% endif %}
+    </div>
+    <div class="lp-editorial__copy" data-lp-reveal><span class="lp-eyebrow">{{ section.settings.eyebrow }}</span><h2 class="lp-title">{{ section.settings.heading }}</h2><p>{{ section.settings.text }}</p>{% if section.settings.button_label != blank %}<a class="lp-button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>{% endif %}</div>
+  </section>
+</div>
 {% schema %}
 {"name":"LP — Éditorial","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"eyebrow","label":"Eyebrow","default":"L'univers LP"},{"type":"textarea","id":"heading","label":"Heading","default":"Une culture. Pas juste une paire."},{"type":"textarea","id":"text","label":"Text","default":"LP Market rassemble les silhouettes qui font avancer la rue. Explorez les nouveautés et choisissez la paire qui vous ressemble."},{"type":"text","id":"button_label","label":"Button label","default":"À propos de LP Market"},{"type":"url","id":"button_link","label":"Button link"}],"presets":[{"name":"LP — Éditorial"}]}
 {% endschema %}

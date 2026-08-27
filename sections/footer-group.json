@@ -2,30 +2,18 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "brand": { "type": "text", "settings": { "heading": "LP Market", "subtext": "<p>Sneakers techniques, lignes iconiques et nouveautés sélectionnées avec exigence.</p>" } },
-        "service": { "type": "text", "settings": { "heading": "Besoin d'aide ?", "subtext": "<p>Écrivez-nous pour un conseil taille, un suivi de commande ou toute question.</p>" } }
-      },
-      "block_order": ["brand", "service"],
+    "lp_footer": {
+      "type": "lp-footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Les nouveautés, sans le bruit.",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "description": "Sneakers techniques, lignes iconiques et nouveautés sélectionnées avec exigence.",
+        "menu_heading": "Explorer",
+        "menu": "footer",
+        "help_heading": "Aide",
+        "show_newsletter": true,
+        "newsletter_heading": "Restez dans le mouvement",
+        "newsletter_text": "Nouveautés, restocks et sélections exclusives."
       }
     }
   },
-  "order": [
-    "footer"
-  ]
+  "order": ["lp_footer"]
 }
