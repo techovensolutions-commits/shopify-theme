@@ -16,6 +16,14 @@
         "price": {
           "type": "price"
         },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "uppercase",
+            "inventory_threshold": 8,
+            "show_inventory_quantity": false
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -36,6 +44,30 @@
         "description": {
           "type": "description"
         },
+        "delivery": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Livraison",
+            "icon": "truck",
+            "content": "<p>Expédition suivie et livraison offerte en France dès 100 €.</p>"
+          }
+        },
+        "returns": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Retours et assistance",
+            "icon": "return",
+            "content": "<p>Besoin d'aide avec votre commande ? Contactez notre équipe depuis la page Contact.</p>"
+          }
+        },
+        "sizing": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Conseil taille",
+            "icon": "ruler",
+            "content": "<p>Choisissez votre taille habituelle. En cas de doute, notre équipe vous aide à trouver la bonne pointure.</p>"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -47,26 +79,30 @@
         "vendor",
         "title",
         "price",
+        "inventory",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
+        "delivery",
+        "returns",
+        "sizing",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_position": "left",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 60,
+        "padding_bottom": 72
       }
     },
     "disclosures": {
@@ -79,8 +115,8 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "À découvrir aussi",
-        "heading_size": "h2",
+        "heading": "Vous aimerez aussi.",
+        "heading_size": "h1",
         "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
@@ -90,8 +126,8 @@
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },

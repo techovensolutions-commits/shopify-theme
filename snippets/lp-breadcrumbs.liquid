@@ -10,7 +10,9 @@
           <span>Accueil</span>
         </a>
       </li>
-      {% if show_collections_parent %}
+      {% if parent_title != blank and parent_url != blank %}
+        <li><a href="{{ parent_url }}">{{ parent_title }}</a></li>
+      {% elsif show_collections_parent %}
         <li><a href="{{ routes.collections_url }}">Collections</a></li>
       {% endif %}
       <li aria-current="page"><span>{{ breadcrumb_title | escape }}</span></li>
