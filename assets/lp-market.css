@@ -120,6 +120,37 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-about-hero__stat strong { color: var(--lp-gold); font-size: clamp(2.6rem, 4vw, 4.8rem); letter-spacing: -.05em; }
 .lp-about-hero__stat span { color: rgba(255,255,255,.62); font-size: 1.05rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
 
+.lp-contact-hero { overflow: hidden; background: var(--lp-ink); color: #fff; }
+.lp-contact-hero__inner.page-width { display: grid; grid-template-columns: 1fr auto; max-width: 144rem; padding-top: clamp(5.6rem, 8vw, 10rem); padding-bottom: 0; }
+.lp-contact-hero__copy { max-width: 88rem; padding-bottom: clamp(5rem, 8vw, 10rem); }
+.lp-contact-hero__copy h1 { margin: 1.8rem 0 0; color: #fff; font-size: clamp(5.5rem, 9vw, 12rem); font-weight: 700; letter-spacing: -.085em; line-height: .84; text-transform: uppercase; }
+.lp-contact-hero__copy p { max-width: 58rem; margin: 2.8rem 0 3.2rem; color: rgba(255,255,255,.68); font-size: 1.6rem; line-height: 1.7; }
+.lp-contact-hero__cta { display: inline-flex; align-items: center; gap: 1.2rem; color: #fff; font-size: 1.1rem; font-weight: 700; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+.lp-contact-hero__cta span { display: grid; width: 3.6rem; height: 3.6rem; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: var(--lp-gold); }
+.lp-contact-hero__mark { align-self: center; display: grid; width: clamp(16rem, 20vw, 26rem); aspect-ratio: 1; margin-left: 4rem; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; text-align: center; }
+.lp-contact-hero__mark span { grid-area: 1 / 1; color: var(--lp-gold); font-size: clamp(5rem, 8vw, 10rem); font-weight: 700; letter-spacing: -.1em; }
+.lp-contact-hero__mark small { grid-area: 1 / 1; align-self: end; margin-bottom: 4rem; color: rgba(255,255,255,.55); font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; }
+.lp-contact-hero__services { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.16); }
+.lp-contact-hero__services article { min-height: 17rem; padding: 2.6rem clamp(2rem, 4vw, 5rem) 3rem 0; }
+.lp-contact-hero__services article + article { padding-left: clamp(2rem, 4vw, 5rem); border-left: 1px solid rgba(255,255,255,.16); }
+.lp-contact-hero__services span { color: var(--lp-gold); font-size: 1rem; font-weight: 700; letter-spacing: .14em; }
+.lp-contact-hero__services h2 { margin: 2.2rem 0 .8rem; color: #fff; font-size: clamp(1.8rem, 2.4vw, 2.7rem); letter-spacing: -.045em; }
+.lp-contact-hero__services p { max-width: 30rem; margin: 0; color: rgba(255,255,255,.62); font-size: 1.3rem; line-height: 1.6; }
+.lp-contact-form.page-width { display: grid; grid-template-columns: .8fr 1.2fr; max-width: 144rem; gap: clamp(5rem, 8vw, 11rem); }
+.lp-contact-form__intro { align-self: start; position: sticky; top: 12rem; }
+.contact.lp-contact-form .lp-contact-form__intro .title { max-width: 54rem; margin: 1.8rem 0 0; font-size: clamp(3.8rem, 5vw, 7rem); letter-spacing: -.07em; line-height: .92; text-transform: uppercase; }
+.lp-contact-form__intro > p { max-width: 48rem; margin: 2.4rem 0 3.5rem; color: var(--lp-muted); font-size: 1.5rem; line-height: 1.7; }
+.lp-contact-form__intro ul { margin: 0; padding: 0; border-top: 1px solid var(--lp-line); list-style: none; }
+.lp-contact-form__intro li { display: flex; gap: 1.3rem; padding: 1.4rem 0; border-bottom: 1px solid var(--lp-line); color: #4e4d49; font-size: 1.25rem; line-height: 1.5; }
+.lp-contact-form__intro li span { color: var(--lp-gold); font-size: 1rem; font-weight: 700; }
+.lp-contact-form__panel { padding: clamp(2.5rem, 5vw, 6rem); border: 1px solid var(--lp-line); background: #fff; box-shadow: 0 2rem 5rem rgba(10,10,10,.05); }
+.lp-contact-form__subject { margin-bottom: 2rem; }
+.lp-contact-form__subject label { display: block; margin-bottom: .8rem; color: var(--lp-muted); font-size: 1rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.lp-contact-form__subject select { width: 100%; min-height: 5.6rem; padding: 0 1.6rem; border: 1px solid rgba(10,10,10,.28); border-radius: 0; background: #fff; color: var(--lp-ink); font: inherit; }
+.lp-contact-form .field__input { min-height: 5.6rem; background: #fff; }
+.lp-contact-form textarea.field__input { min-height: 18rem; }
+.lp-contact-form .contact__button .button { width: 100%; min-height: 5.8rem; background: var(--lp-ink); color: #fff; }
+
 .collection-hero__title, .main-page-title, .contact .title { letter-spacing: -.065em; text-transform: uppercase; }
 .lp-breadcrumbs-wrap { border-bottom: 1px solid var(--lp-line); background: var(--lp-paper); }
 .lp-breadcrumbs.page-width { max-width: 144rem; padding-top: 1.8rem; padding-bottom: 1.8rem; }
@@ -234,6 +265,8 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 @media screen and (max-width: 989px) {
   .lp-editorial.page-width { grid-template-columns: 1fr; }
   .lp-editorial__image { min-height: clamp(36rem, 62vw, 52rem); }
+  .lp-contact-form.page-width { grid-template-columns: 1fr; }
+  .lp-contact-form__intro { position: static; }
 }
 
 @media screen and (max-width: 749px) {
@@ -275,6 +308,16 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
   .lp-about-hero__stats { grid-template-columns: 1fr; }
   .lp-about-hero__stat { padding: 2rem 0; }
   .lp-about-hero__stat + .lp-about-hero__stat { padding-left: 0; border-top: 1px solid rgba(255,255,255,.16); border-left: 0; }
+  .lp-contact-hero__inner.page-width { grid-template-columns: 1fr; padding-top: 5.6rem; }
+  .lp-contact-hero__copy { padding-bottom: 4.5rem; }
+  .lp-contact-hero__copy h1 { font-size: clamp(4.8rem, 16vw, 7rem); }
+  .lp-contact-hero__copy p { font-size: 1.45rem; }
+  .lp-contact-hero__mark { display: none; }
+  .lp-contact-hero__services { grid-template-columns: 1fr; }
+  .lp-contact-hero__services article { min-height: 0; padding: 2.4rem 0; }
+  .lp-contact-hero__services article + article { padding-left: 0; border-top: 1px solid rgba(255,255,255,.16); border-left: 0; }
+  .lp-contact-form.page-width { gap: 4rem; }
+  .lp-contact-form__panel { padding: 2.2rem 1.6rem; }
   .lp-footer__grid { grid-template-columns: 1fr 1fr; }
   .lp-footer__brand, .lp-footer__newsletter { grid-column: 1 / -1; }
   .lp-footer__bottom { align-items: flex-start; flex-direction: column; }

@@ -15,14 +15,22 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
+  <div class="contact lp-contact-form page-width section-{{ section.id }}-padding">
+    <div class="lp-contact-form__intro{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {% if section.settings.eyebrow != blank %}<span class="lp-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+      {% if section.settings.intro != blank %}<p>{{ section.settings.intro }}</p>{% endif %}
+      <ul role="list">
+        <li><span>01</span> Précisez le modèle et la pointure.</li>
+        <li><span>02</span> Ajoutez votre numéro de commande si nécessaire.</li>
+        <li><span>03</span> Nous vous répondons dans les meilleurs délais.</li>
+      </ul>
+    </div>
+    <div class="lp-contact-form__panel">
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
@@ -99,6 +107,16 @@
           {%- endif -%}
         </div>
       </div>
+      <div class="lp-contact-form__subject">
+        <label for="ContactForm-subject">Objet de la demande</label>
+        <select id="ContactForm-subject" name="contact[Objet]">
+          <option value="Conseil produit">Conseil produit</option>
+          <option value="Conseil pointure">Conseil pointure</option>
+          <option value="Suivi de commande">Suivi de commande</option>
+          <option value="Retour ou échange">Retour ou échange</option>
+          <option value="Autre demande">Autre demande</option>
+        </select>
+      </div>
       <div class="field">
         <input
           type="tel"
@@ -114,7 +132,7 @@
       </div>
       <div class="field">
         <textarea
-          rows="10"
+          rows="7"
           id="ContactForm-body"
           class="text-area field__input"
           name="contact[{{ 'templates.contact.form.comment' | t }}]"
@@ -132,6 +150,7 @@
         </button>
       </div>
     {%- endform -%}
+    </div>
   </div>
 </div>
 
@@ -145,10 +164,22 @@
   },
   "settings": [
     {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Votre message"
+    },
+    {
       "type": "inline_richtext",
       "id": "heading",
       "default": "t:sections.contact-form.settings.title.default",
       "label": "t:sections.contact-form.settings.title.label"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Donnez-nous quelques détails et notre équipe reviendra vers vous avec une réponse claire et personnalisée."
     },
     {
       "type": "select",

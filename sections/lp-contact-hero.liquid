@@ -1,0 +1,59 @@
+{% render 'lp-breadcrumbs', current_title: page.title, show_collections_parent: false %}
+
+<section class="lp-contact-hero">
+  <div class="lp-contact-hero__inner page-width">
+    <div class="lp-contact-hero__copy" data-lp-reveal>
+      {% if section.settings.eyebrow != blank %}<span class="lp-eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
+      <h1>{{ section.settings.heading }}</h1>
+      {% if section.settings.text != blank %}<p>{{ section.settings.text }}</p>{% endif %}
+      <a class="lp-contact-hero__cta" href="#ContactForm">Écrivez-nous <span aria-hidden="true">↓</span></a>
+    </div>
+
+    <div class="lp-contact-hero__mark" aria-hidden="true" data-lp-reveal>
+      <span>LP</span>
+      <small>À votre écoute</small>
+    </div>
+
+    <div class="lp-contact-hero__services">
+      {% for block in section.blocks %}
+        <article {{ block.shopify_attributes }} data-lp-reveal>
+          <span>0{{ forloop.index }}</span>
+          <h2>{{ block.settings.title }}</h2>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LP — Hero Contact",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Contact LP Market" },
+    { "type": "textarea", "id": "heading", "label": "Titre", "default": "Parlons sneakers." },
+    { "type": "textarea", "id": "text", "label": "Texte", "default": "Une question sur une pointure, un modèle ou votre commande ? Notre équipe vous répond avec précision et simplicité." }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Information",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Réponse rapide" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Sous 24 à 48 heures ouvrées." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LP — Hero Contact",
+      "blocks": [
+        { "type": "service", "settings": { "title": "Réponse rapide", "text": "Sous 24 à 48 heures ouvrées." } },
+        { "type": "service", "settings": { "title": "Conseil pointure", "text": "Un doute ? Nous vous aidons à choisir." } },
+        { "type": "service", "settings": { "title": "Suivi de commande", "text": "Indiquez votre numéro de commande." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
