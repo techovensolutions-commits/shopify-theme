@@ -31,6 +31,7 @@
     "header": {
       "type": "header",
       "settings": {
+        "lp_logo_radius": 5,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
         "logo_position": "middle-center",

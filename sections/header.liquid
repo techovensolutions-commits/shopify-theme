@@ -139,7 +139,7 @@
   assign lp_header_logo = section.settings.lp_logo | default: settings.logo
   assign lp_header_logo_width = section.settings.lp_logo_width | default: 180
   assign lp_header_logo_height = section.settings.lp_logo_height | default: 44
-  assign lp_header_logo_radius = section.settings.lp_logo_radius | default: 16
+  assign lp_header_logo_radius = section.settings.lp_logo_radius | default: 5
 
   if section.settings.sticky_header_type != 'none'
     assign header_tag = 'sticky-header'
@@ -556,10 +556,10 @@
       "id": "lp_logo_radius",
       "min": 0,
       "max": 30,
-      "step": 2,
+      "step": 1,
       "unit": "px",
       "label": "LP Market logo corner radius",
-      "default": 16
+      "default": 5
     },
     {
       "type": "select",
