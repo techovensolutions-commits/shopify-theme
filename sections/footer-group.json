@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -5,26 +14,68 @@
     "lp_social_benefits": {
       "type": "lp-social-benefits",
       "blocks": {
-        "shipping": { "type": "service", "settings": { "icon": "shipping", "title": "Livraison", "text": "Livraison offerte dès 100 €\nExpédition suivie et soignée" } },
-        "payment": { "type": "service", "settings": { "icon": "payment", "title": "Paiement sécurisé", "text": "Vos paiements sont entièrement sécurisés grâce à nos solutions de protection." } },
-        "support": { "type": "service", "settings": { "icon": "support", "title": "Service client", "text": "Besoin d'un conseil ? Notre équipe vous accompagne avant et après votre commande." } },
-        "benefits": { "type": "service", "settings": { "icon": "tag", "title": "Avantages LP", "text": "Accédez aux nouveautés, restocks et sélections exclusives LP Market." } }
+        "shipping": {
+          "type": "service",
+          "settings": {
+            "icon": "shipping",
+            "title": "Livraison",
+            "text": "Livraison offerte en France dès 100 €\nExpédition suivie et soignée"
+          }
+        },
+        "payment": {
+          "type": "service",
+          "settings": {
+            "icon": "payment",
+            "title": "Paiement sécurisé",
+            "text": "Vos paiements sont entièrement sécurisés grâce à nos solutions de protection."
+          }
+        },
+        "support": {
+          "type": "service",
+          "settings": {
+            "icon": "support",
+            "title": "Service client",
+            "text": "Besoin d'un conseil ? Notre équipe vous accompagne avant et après votre commande."
+          }
+        },
+        "benefits": {
+          "type": "service",
+          "settings": {
+            "icon": "tag",
+            "title": "Avantages LP",
+            "text": "Accédez aux nouveautés, restocks et sélections exclusives LP Market."
+          }
+        }
       },
-      "block_order": ["shipping", "payment", "support", "benefits"],
-      "settings": { "heading": "Nos réseaux" }
+      "block_order": [
+        "shipping",
+        "payment",
+        "support",
+        "benefits"
+      ],
+      "settings": {
+        "heading": "Nos réseaux",
+        "tiktok_url": "",
+        "instagram_url": "",
+        "snapchat_url": ""
+      }
     },
     "lp_footer": {
       "type": "lp-footer",
       "settings": {
         "description": "Sneakers techniques, lignes iconiques et nouveautés sélectionnées avec exigence.",
         "menu_heading": "Explorer",
-        "menu": "footer",
+        "menu": "main-menu",
         "help_heading": "Aide",
+        "help_menu": "customer-account-main-menu",
         "show_newsletter": true,
         "newsletter_heading": "Restez dans le mouvement",
         "newsletter_text": "Nouveautés, restocks et sélections exclusives."
       }
     }
   },
-  "order": ["lp_social_benefits", "lp_footer"]
+  "order": [
+    "lp_social_benefits",
+    "lp_footer"
+  ]
 }
