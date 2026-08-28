@@ -181,16 +181,15 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .card__heading { font-size: 1.5rem; font-weight: 700; letter-spacing: -.025em; }
 .price { font-size: 1.35rem; font-weight: 700; }
 .facets-container { border-bottom: 1px solid var(--lp-line); }
-.product--large:not(.product--no-media) .product__media-wrapper { max-width: 58%; }
 .template-product product-info { display: block; background: var(--lp-paper); }
 .template-product product-info > product-component > .page-width { max-width: 144rem; }
-.template-product .product { align-items: start; gap: clamp(3rem, 6vw, 8rem); }
+.template-product .product { align-items: start; gap: clamp(3rem, 3vw, 5rem); }
 .template-product .product__media-list .product__media-item { overflow: hidden; background: #ebe9e4; }
 .template-product .product__media img { mix-blend-mode: multiply; }
 .template-product .thumbnail { background: #ebe9e4; }
 .template-product .thumbnail[aria-current] { box-shadow: 0 0 0 .2rem var(--lp-gold); }
 .template-product .product__info-wrapper { padding: 0; }
-.template-product .product__info-container { max-width: 56rem; padding: clamp(3rem, 4vw, 5rem); border: 1px solid var(--lp-line); background: #fff; }
+.template-product .product__info-container { width: 100%; max-width: none; padding: clamp(3rem, 3vw, 4.5rem); border: 1px solid var(--lp-line); background: #fff; }
 .template-product .product__text.caption-with-letter-spacing { margin-bottom: 1.5rem; color: var(--lp-gold); font-weight: 700; letter-spacing: .15em; }
 .product__title h1 { font-size: clamp(3.3rem, 5vw, 6.6rem); letter-spacing: -.075em; line-height: .9; text-transform: uppercase; }
 .product__info-container .price { font-size: 2rem; }
@@ -208,6 +207,10 @@ body { background: var(--lp-paper); color: var(--lp-ink); }
 .lp-product-assurances span { display: grid; gap: .2rem; color: var(--lp-muted); font-size: 1.05rem; }
 .lp-product-assurances strong { color: var(--lp-ink); font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase; }
 .template-product .related-products__heading { margin-bottom: 4rem; font-size: clamp(3.5rem, 5vw, 7rem); letter-spacing: -.065em; line-height: .95; text-transform: uppercase; }
+@media screen and (min-width: 990px) {
+  .template-product .product--large:not(.product--no-media) .product__media-wrapper { width: calc(56% - 2.5rem); max-width: calc(56% - 2.5rem); }
+  .template-product .product--large:not(.product--no-media) .product__info-wrapper { width: calc(44% - 2.5rem); max-width: calc(44% - 2.5rem); padding-left: 0; }
+}
 .main-page { max-width: 90rem; padding: clamp(5rem, 9vw, 13rem) 2rem; }
 .main-page .rte { max-width: 68rem; font-size: 1.65rem; line-height: 1.7; }
 .contact { padding-bottom: clamp(6rem, 9vw, 12rem); }
