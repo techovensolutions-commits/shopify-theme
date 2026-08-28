@@ -139,6 +139,7 @@
   assign lp_header_logo = section.settings.lp_logo | default: settings.logo
   assign lp_header_logo_width = section.settings.lp_logo_width | default: 180
   assign lp_header_logo_height = section.settings.lp_logo_height | default: 44
+  assign lp_header_logo_radius = section.settings.lp_logo_radius | default: 16
 
   if section.settings.sticky_header_type != 'none'
     assign header_tag = 'sticky-header'
@@ -189,7 +190,7 @@
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if lp_header_logo != blank -%}
-          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px;">
+          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px; --lp-logo-radius: {{ lp_header_logo_radius }}px;">
             {%- assign logo_alt = lp_header_logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = lp_header_logo_width | divided_by: lp_header_logo.aspect_ratio -%}
             {% capture sizes %}(max-width: {{ lp_header_logo_width | times: 2 }}px) 50vw, {{ lp_header_logo_width }}px{% endcapture %}
@@ -208,7 +209,7 @@
             }}
           </div>
         {%- else -%}
-          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px;">
+          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px; --lp-logo-radius: {{ lp_header_logo_radius }}px;">
             <img
               class="header__heading-logo lp-header-logo--fallback motion-reduce"
               src="{{ 'lp-market-logo.jpeg' | asset_url }}"
@@ -241,7 +242,7 @@
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
         {%- if lp_header_logo != blank -%}
-          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px;">
+          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px; --lp-logo-radius: {{ lp_header_logo_radius }}px;">
             {%- assign logo_alt = lp_header_logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = lp_header_logo_width | divided_by: lp_header_logo.aspect_ratio -%}
             {% capture sizes %}(min-width: 750px) {{ lp_header_logo_width }}px, 50vw{% endcapture %}
@@ -260,7 +261,7 @@
             }}
           </div>
         {%- else -%}
-          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px;">
+          <div class="header__heading-logo-wrapper" style="width: min({{ lp_header_logo_width }}px, 42vw); height: {{ lp_header_logo_height }}px; --lp-logo-radius: {{ lp_header_logo_radius }}px;">
             <img
               class="header__heading-logo lp-header-logo--fallback motion-reduce"
               src="{{ 'lp-market-logo.jpeg' | asset_url }}"
@@ -549,6 +550,16 @@
       "unit": "px",
       "label": "LP Market logo height",
       "default": 44
+    },
+    {
+      "type": "range",
+      "id": "lp_logo_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "LP Market logo corner radius",
+      "default": 16
     },
     {
       "type": "select",
