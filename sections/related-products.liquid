@@ -20,29 +20,92 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign category_collection = section.settings.category_collection
+
+  if category_collection == blank and collection != blank and collection.handle != 'all'
+    assign category_collection = collection
+  endif
+
+  if category_collection == blank
+    for product_collection in product.collections
+      unless product_collection.handle == 'all' or product_collection.handle == 'frontpage'
+        assign category_collection = product_collection
+        break
+      endunless
+    endfor
+  endif
+
+  assign use_shopify_recommendations = false
+  assign recommendations_tag = 'div'
+  if section.settings.recommendation_source == 'automatic'
+    assign use_shopify_recommendations = true
+    assign recommendations_tag = 'product-recommendations'
+  endif
+
+  assign related_items = category_collection.products
+  assign showing_category_products = true
+
+  if use_shopify_recommendations and recommendations.performed and recommendations.products_count > 0
+    assign related_items = recommendations.products
+    assign showing_category_products = false
+  endif
+
+  assign has_related_products = false
+  for related_item in related_items
+    if related_item.id != product.id
+      assign has_related_products = true
+      break
+    endif
+  endfor
+-%}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ product.id }}"
+  <{{ recommendations_tag }}
+    class="related-products lp-related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% if use_shopify_recommendations %}
+      data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}&intent=related"
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}"
+    {% endif %}
   >
-    {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-        {{ section.settings.heading }}
-      </h2>
+    {% if has_related_products %}
+      <div class="lp-related-products__header">
+        <div>
+          {% if section.settings.eyebrow != blank %}
+            <p class="lp-related-products__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          {% endif %}
+          <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        </div>
+        {% if showing_category_products and section.settings.show_collection_link and category_collection != blank %}
+          <a class="lp-related-products__link" href="{{ category_collection.url }}">
+            Voir {{ category_collection.title | escape }}
+          </a>
+        {% endif %}
+      </div>
       <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        class="lp-related-products__grid"
+        style="--lp-related-columns: {{ section.settings.columns_desktop }}; --lp-related-mobile-columns: {{ section.settings.columns_mobile }};"
         role="list"
       >
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'lp-product-card', product: recommendation %}
+        {%- assign products_rendered = 0 -%}
+        {% for related_product in related_items %}
+          {% if related_product.id == product.id %}
+            {% continue %}
+          {% endif %}
+          <li>
+            {% render 'lp-product-card', product: related_product %}
           </li>
+          {%- assign products_rendered = products_rendered | plus: 1 -%}
+          {% if products_rendered >= section.settings.products_to_show %}
+            {% break %}
+          {% endif %}
         {% endfor %}
       </ul>
     {% endif %}
-  </product-recommendations>
+  </{{ recommendations_tag }}>
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
@@ -57,6 +120,40 @@
     {
       "type": "paragraph",
       "content": "t:sections.related-products.settings.paragraph__1.content"
+    },
+    {
+      "type": "select",
+      "id": "recommendation_source",
+      "label": "Source des produits",
+      "options": [
+        {
+          "value": "automatic",
+          "label": "Recommandations Shopify + catégorie"
+        },
+        {
+          "value": "collection",
+          "label": "Même catégorie uniquement"
+        }
+      ],
+      "default": "automatic"
+    },
+    {
+      "type": "collection",
+      "id": "category_collection",
+      "label": "Catégorie prioritaire",
+      "info": "Facultatif. Sans sélection, la première collection du produit est utilisée."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_link",
+      "label": "Afficher le lien vers la catégorie",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "Sélection LP"
     },
     {
       "type": "inline_richtext",
