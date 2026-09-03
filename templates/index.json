@@ -13,10 +13,10 @@
     "lp_categories": {
       "type": "lp-category-rail",
       "blocks": {
-        "asics": { "type": "category", "settings": { "title": "ASICS", "description": "Performance culte", "link": "/search?q=Asics&type=product" } },
-        "on": { "type": "category", "settings": { "title": "ON RUNNING", "description": "Confort radical", "link": "/search?q=On+Cloudtilt&type=product" } },
-        "mizuno": { "type": "category", "settings": { "title": "MIZUNO", "description": "Technicité japonaise", "link": "/search?q=Mizuno&type=product" } },
-        "salomon": { "type": "category", "settings": { "title": "SALOMON", "description": "Outdoor urbain", "link": "/search?q=Salomon&type=product" } }
+        "asics": { "type": "category", "settings": { "product": "asics-gel-kayano-14-black-cream", "collection": "asics", "title": "ASICS", "description": "Performance culte", "link": "/collections/asics" } },
+        "on": { "type": "category", "settings": { "product": "on-cloudtilt-black-black", "collection": "on-cloudlit", "title": "ON RUNNING", "description": "Confort radical", "link": "/collections/on-cloudlit" } },
+        "mizuno": { "type": "category", "settings": { "product": "mizuno-wave-prophecy-black-silver", "collection": "mizuno", "title": "MIZUNO", "description": "Technicité japonaise", "link": "/collections/mizuno" } },
+        "salomon": { "type": "category", "settings": { "product": "salomon-xt-6-mm6-maison-margiela-vanilla-ice", "title": "SALOMON", "description": "Outdoor urbain", "link": "/search?q=Salomon&type=product" } }
       },
       "block_order": ["asics", "on", "mizuno", "salomon"],
       "settings": { "eyebrow": "Sélection par univers", "heading": "Trouve ton mouvement.", "all_link": "shopify://collections/all" }
@@ -34,10 +34,10 @@
     "lp_reviews": {
       "type": "lp-reviews",
       "blocks": {
-        "jordan": { "type": "review", "settings": { "name": "Jordan", "rating": 5, "text": "Livraison rapide, paire incroyable et super confortable.", "verified": true, "date": "Il y a 12 jours" } },
-        "doublev": { "type": "review", "settings": { "name": "DoubleV", "rating": 5, "text": "Service au top, équipe réactive et commande parfaitement emballée.", "verified": true, "date": "Il y a 6 mois" } },
-        "sarah": { "type": "review", "settings": { "name": "Sarah", "rating": 5, "text": "Rien à dire, livrée en une semaine. La paire est encore mieux en vrai.", "verified": true, "date": "Il y a 2 jours" } },
-        "kilian": { "type": "review", "settings": { "name": "Kilian", "rating": 5, "text": "Déjà ma deuxième commande chez LP Market, toujours impeccable.", "verified": true, "date": "Il y a 3 semaines" } }
+        "jordan": { "type": "review", "settings": { "name": "Jordan", "rating": 5, "text": "Livraison rapide, paire incroyable et super confortable.", "product": "on-cloudtilt-black-asphalt", "verified": true, "date": "Il y a 12 jours" } },
+        "doublev": { "type": "review", "settings": { "name": "DoubleV", "rating": 5, "text": "Service au top, équipe réactive et commande parfaitement emballée.", "product": "mizuno-wave-prophecy-black-silver", "verified": true, "date": "Il y a 6 mois" } },
+        "sarah": { "type": "review", "settings": { "name": "Sarah", "rating": 5, "text": "Rien à dire, livrée en une semaine. La paire est encore mieux en vrai.", "product": "salomon-xt-6-mm6-maison-margiela-vanilla-ice", "verified": true, "date": "Il y a 2 jours" } },
+        "kilian": { "type": "review", "settings": { "name": "Kilian", "rating": 5, "text": "Déjà ma deuxième commande chez LP Market, toujours impeccable.", "product": "on-cloudtilt-remix-alloy-ivory", "verified": true, "date": "Il y a 3 semaines" } }
       },
       "block_order": ["jordan", "doublev", "sarah", "kilian"],
       "settings": { "eyebrow": "Avis clients", "heading": "Ils ont validé", "highlight": "LP MARKET", "accent_color": "#d6ad5e" }
